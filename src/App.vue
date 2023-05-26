@@ -3,11 +3,20 @@ import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
 import Body from './components/Body.vue'
 import Footer from './components/Footer.vue'
+
+import { ref } from 'vue';
+
+const imageVisible = ref(true);
+
+const toggleImageVisibility = () => {
+  imageVisible.value = !imageVisible.value;
+};
+;
 </script>
 
 <template>
-  <Header />
-  <Body />
+  <Header @buttonClicked="toggleImageVisibility"/>
+  <Body :isVisible="imageVisible"/>
   <Footer />
   
 
@@ -17,3 +26,7 @@ import Footer from './components/Footer.vue'
 <style scoped>
 
 </style>
+<components>
+  <ButtonComponent />
+  <ImageComponent :isVisible="imageVisible" />
+</components>

@@ -1,5 +1,18 @@
 <script setup>
+import { ref, defineEmits } from 'vue';
 
+const isVisible = ref(true);
+
+const toggleImageVisibility = () => {
+  emit('buttonClicked');
+};
+
+defineEmits(['buttonClicked']);
+
+ {
+  isVisible,
+  toggleImageVisibility
+};
 </script>
 
 <template>
@@ -15,7 +28,7 @@
       </svg>
     </div>
     <div class="snap-center">
-      <button class="bg-[#2E6DD3] text-white p-1">Sign up</button>
+      <button @click="toggleImageVisibility" class="bg-[#2E6DD3] text-white p-1">Sign up</button>
     </div>
   </div>
 </template>
